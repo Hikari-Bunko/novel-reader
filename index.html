@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Novel Reader</title>
+    <title>Web Reader</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Novel Reader</h1>
-    <input type="text" id="urlInput" placeholder="Masukkan URL novel">
-    <button id="scanButton">Scan Novel</button>
-    <div id="novelContent"></div>
+    <div class="container">
+        <h1>Web Reader</h1>
+        <input type="text" id="url" placeholder="Masukkan URL" />
+        <button id="fetchButton">Baca</button>
+        <div id="content"></div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
