@@ -1,14 +1,11 @@
-document.getElementById('scanButton').addEventListener('click', function() {
-    const url = document.getElementById('urlInput').value;
-    fetch(url)
-        .then(response => response.text())
+document.getElementById('fetchButton').addEventListener('click', function() {
+    const url = document.getElementById('url').value;
+    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`)
+        .then(response => response.json())
         .then(data => {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(data, 'text/html');
-            const content = doc.querySelector('.novel-content'); // Sesuaikan dengan selector yang tepat
-            document.getElementById('novelContent').innerHTML = content.innerHTML;
+            document.getElementById('content').innerHTML = data.contents;
         })
         .catch(error => {
-            console.error('Error:', error);
+            document.getElementById('content').innerHTML = 'Terjadi kesalahan: ' + error;
         });
 });
